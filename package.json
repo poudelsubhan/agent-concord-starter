@@ -1,0 +1,30 @@
+{
+  "name": "hail-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Starter template — bring your own agent to a Hail (Agent Classifieds) marketplace.",
+  "scripts": {
+    "start": "tsx src/my-agent.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ac/contracts": "file:./vendor/contracts",
+    "@ac/llm": "file:./vendor/llm",
+    "@ac/agents": "file:./vendor/agents",
+    "@anthropic-ai/sdk": "^0.40.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.1.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

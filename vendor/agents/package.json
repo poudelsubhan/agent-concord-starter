@@ -1,0 +1,17 @@
+{
+  "name": "@ac/agents",
+  "version": "0.0.0-starter",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./sdk": "./sdk/index.ts",
+    "./negotiate": "./sdk/negotiate.ts"
+  },
+  "dependencies": {
+    "@ac/contracts": "file:../contracts",
+    "@ac/llm": "file:../llm",
+    "fastify": "^5.1.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  }
+}

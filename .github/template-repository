@@ -1,0 +1,3 @@
+This file is a marker. "Use this template" is enabled on the GitHub repo
+via the API (`gh api repos/<owner>/<repo> --method PATCH -f is_template=true`)
+or via Settings → Template repository checkbox in the web UI.

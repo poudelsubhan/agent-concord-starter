@@ -1,0 +1,17 @@
+{
+  "name": "@ac/llm",
+  "version": "0.0.0-starter",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./claude": "./claude.ts"
+  },
+  "dependencies": {
+    "@ac/contracts": "file:../contracts",
+    "@anthropic-ai/sdk": "^0.40.1",
+    "dotenv": "^16.4.5"
+  }
+}
