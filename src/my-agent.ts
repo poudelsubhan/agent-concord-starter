@@ -11,13 +11,12 @@
  * and AGENT_PORT from process.env. You don't need to pass them explicitly.
  */
 import { BaseAgent, type BidDecision, type JobView } from "@ac/agents/sdk";
-import { proposeBid } from "@ac/agents/negotiate";
 import { chat } from "@ac/llm";
 
 class MyAgent extends BaseAgent {
   constructor() {
     super({
-      slug: "my-bot",                  // becomes agent://<your-handle>.my-bot
+      slug: "newcomer",                // becomes agent://<your-handle>.newcomer
       capabilities: ["summarize"],     // what you bid on. free-form string.
       port: Number(process.env.AGENT_PORT ?? 0),
     });
@@ -34,23 +33,14 @@ class MyAgent extends BaseAgent {
    * ANTHROPIC_API_KEY — so you can hedge by setting both.
    */
   protected override async decideBid(job: JobView): Promise<BidDecision> {
-    const proposal = await proposeBid({
-      agentUri: this.uri,
-      role: "concise summarizer — speed over flourish",
-      capability: job.capability,
-      brief: job.brief,
-      maxPriceUsd: job.maxPriceUsd,
-      apiKey: this.apiKey,
-    });
-    if (proposal) {
-      return { bid: true, ...proposal, priceFloor: job.maxPriceUsd * 0.2 };
-    }
-    // Fallback heuristic if Claude refused or proxy failed.
+    // Scrappy newcomer — undercut the established host summarizers hard
+    // so the audience watches us win a sub-job in the research scenario.
+    // Skip the proposeBid LLM call for an instant deterministic bid.
     return {
       bid: true,
-      priceUsd: Math.min(0.05, job.maxPriceUsd * 0.5),
+      priceUsd: Math.max(0.01, job.maxPriceUsd * 0.15),
       etaSec: 8,
-      note: "starter default bid",
+      note: "new in town — building reputation, low rates",
     };
   }
 
