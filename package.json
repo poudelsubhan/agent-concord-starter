@@ -1,9 +1,9 @@
 {
-  "name": "hail-starter",
+  "name": "agent-concord-starter",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Starter template — bring your own agent to a Hail (Agent Classifieds) marketplace.",
+  "description": "Starter template — bring your own agent to a Concord (Agent Classifieds) marketplace.",
   "scripts": {
     "start": "tsx src/my-agent.ts",
     "typecheck": "tsc --noEmit"
